@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Akshay Luhadia — Full Stack Engineer</title>
+<meta name="description" content="Akshay Luhadia — full stack engineer building software across the stack, from database to pixels.">
+<meta property="og:title" content="Akshay Luhadia — Full Stack Engineer">
+<meta property="og:description" content="I build software people actually enjoy using — from the database to the pixels on screen.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F6F1E9;
+    --paper-deep:#EFE6D8;
+    --ink:#26221D;
+    --ink-soft:#5C5348;
+    --rust:#B5502F;
+    --teal:#1F4B4C;
+    --gold:#C99A3E;
+    --sage:#6E7B5F;
+    --line:rgba(38,34,29,0.12);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:'Fraunces', serif; font-weight:500; letter-spacing:-0.01em;}
+  a{color:inherit;}
+  .wrap{max-width:1040px; margin:0 auto; padding:0 32px;}
+  .mono{font-family:'IBM Plex Mono', monospace; font-size:0.85rem; letter-spacing:0.02em;}
+
+  /* NAV */
+  nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(246,241,233,0.88);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{display:flex; justify-content:space-between; align-items:center; height:68px;}
+  .nav-name{font-family:'Fraunces', serif; font-weight:600; font-size:1.1rem; text-decoration:none;}
+  .nav-links{display:flex; gap:28px; list-style:none;}
+  .nav-links a{text-decoration:none; font-size:0.92rem; color:var(--ink-soft); transition:color .2s;}
+  .nav-links a:hover{color:var(--rust);}
+
+  /* HERO */
+  header.hero{padding:96px 0 72px;}
+  .hero-grid{display:grid; grid-template-columns:1.1fr 0.9fr; gap:56px; align-items:center;}
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace; font-size:0.8rem; color:var(--rust);
+    letter-spacing:0.08em; text-transform:uppercase; margin-bottom:18px; display:block;
+  }
+  .hero h1{font-size:3rem; line-height:1.12; margin-bottom:22px;}
+  .hero h1 em{color:var(--rust); font-style:normal;}
+  .hero p.lede{font-size:1.1rem; color:var(--ink-soft); max-width:46ch; margin-bottom:32px;}
+  .btn-row{display:flex; gap:14px; flex-wrap:wrap;}
+  .btn{
+    display:inline-block; padding:13px 24px; border-radius:2px; font-size:0.92rem;
+    text-decoration:none; font-weight:500; transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn-primary{background:var(--ink); color:var(--paper);}
+  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 6px 16px rgba(38,34,29,0.25);}
+  .btn-ghost{border:1px solid rgba(38,34,29,0.25); color:var(--ink);}
+  .btn-ghost:hover{border-color:var(--ink);}
+
+  /* STACK — a geological cross-section representing "full stack" */
+  .strata{
+    position:relative; border-radius:4px; overflow:hidden;
+    box-shadow:0 20px 50px rgba(38,34,29,0.15);
+    border:1px solid var(--line);
+  }
+  .layer{
+    position:relative; padding:20px 22px; cursor:default;
+    display:flex; justify-content:space-between; align-items:center;
+    transition:padding .25s ease;
+    border-bottom:1px solid rgba(38,34,29,0.08);
+  }
+  .layer:last-child{border-bottom:none;}
+  .layer:hover{padding-left:30px;}
+  .layer .name{font-family:'Fraunces', serif; font-size:1.05rem; font-weight:500;}
+  .layer .tech{font-family:'IBM Plex Mono', monospace; font-size:0.75rem; opacity:0.85;}
+  .layer.l1{background:#F0DCC0; color:var(--ink);}
+  .layer.l2{background:#E3B98C; color:var(--ink);}
+  .layer.l3{background:#C98858; color:#fff;}
+  .layer.l4{background:var(--teal); color:#EFE6D8;}
+  .strata-caption{margin-top:14px; font-size:0.82rem; color:var(--ink-soft); text-align:center;}
+
+  section{padding:72px 0;}
+  .divider{height:1px; background:var(--line); margin:0;}
+  .section-head{display:flex; align-items:baseline; gap:16px; margin-bottom:36px;}
+  .section-head h2{font-size:1.7rem;}
+  .section-head .mono{color:var(--ink-soft);}
+
+  /* ABOUT */
+  .about-grid{display:grid; grid-template-columns:0.8fr 1.2fr; gap:48px;}
+  .about-photo{
+    aspect-ratio:4/5; border-radius:4px; background:var(--paper-deep);
+    border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'IBM Plex Mono', monospace; font-size:0.8rem; color:var(--ink-soft);
+  }
+  .about-text p{margin-bottom:16px; color:var(--ink-soft); max-width:60ch;}
+  .about-text strong{color:var(--ink); font-weight:600;}
+
+  /* STACK BADGES (about section) */
+  .about-stack{display:flex; flex-wrap:wrap; gap:8px; margin-top:20px;}
+  .about-stack span{
+    font-family:'IBM Plex Mono', monospace; font-size:0.72rem; padding:5px 10px;
+    background:var(--paper-deep); border-radius:2px; color:var(--ink-soft);
+    border:1px solid var(--line);
+  }
+
+  /* PROJECTS */
+  .projects{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
+  .card{
+    background:#fff; border:1px solid var(--line); border-radius:4px;
+    padding:26px; transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .card:hover{transform:translateY(-4px); box-shadow:0 14px 30px rgba(38,34,29,0.1);}
+  .card .tag{color:var(--rust); margin-bottom:10px; display:block;}
+  .card h3{font-size:1.15rem; margin-bottom:10px;}
+  .card p{color:var(--ink-soft); font-size:0.94rem; margin-bottom:16px;}
+  .card .stack-tags{display:flex; gap:8px; flex-wrap:wrap;}
+  .stack-tags span{
+    font-family:'IBM Plex Mono', monospace; font-size:0.72rem; padding:3px 8px;
+    background:var(--paper-deep); border-radius:2px; color:var(--ink-soft);
+  }
+
+  /* CONTACT */
+  footer{padding:80px 0 56px; text-align:center;}
+  footer h2{font-size:2rem; margin-bottom:18px;}
+  footer p{color:var(--ink-soft); margin-bottom:28px;}
+  .footer-links{display:flex; gap:24px; justify-content:center; margin-bottom:40px; flex-wrap:wrap;}
+  .footer-links a{text-decoration:none; font-size:0.92rem; border-bottom:1px solid transparent;}
+  .footer-links a:hover{border-color:var(--rust); color:var(--rust);}
+  .fine{color:var(--ink-soft); font-size:0.8rem;}
+
+  @media (max-width: 760px){
+    .hero-grid, .about-grid{grid-template-columns:1fr;}
+    .projects{grid-template-columns:1fr;}
+    .hero h1{font-size:2.2rem;}
+    header.hero{padding:56px 0 48px;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{transition:none !important;}
+  }
+  a:focus-visible, .btn:focus-visible{outline:2px solid var(--rust); outline-offset:2px;}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="nav-name" href="#top">Akshay Luhadia</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#stack">Stack</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Full Stack Engineer</span>
+      <h1>I build software people actually enjoy <em>using</em>.</h1>
+      <p class="lede">From the database to the pixels on screen — I care as much about clean architecture as I do about how it feels in someone's hands.</p>
+      <div class="btn-row">
+        <a href="#work" class="btn btn-primary">See my work</a>
+        <a href="#contact" class="btn btn-ghost">Get in touch</a>
+      </div>
+    </div>
+    <div>
+      <div class="strata" id="stack">
+        <div class="layer l1"><span class="name">Frontend</span><span class="tech mono">React · TypeScript</span></div>
+        <div class="layer l2"><span class="name">API</span><span class="tech mono">Node · GraphQL</span></div>
+        <div class="layer l3"><span class="name">Data</span><span class="tech mono">Postgres · Redis</span></div>
+        <div class="layer l4"><span class="name">Infra</span><span class="tech mono">Docker · AWS</span></div>
+      </div>
+      <p class="strata-caption">the stack, layer by layer</p>
+    </div>
+  </div>
+</header>
+
+<div class="divider"></div>
+
+<section id="about">
+  <div class="wrap about-grid">
+    <div class="about-photo">[ photo ]</div>
+    <div class="about-text">
+      <div class="section-head"><h2>About</h2><span class="mono">01</span></div>
+      <p>I'm Akshay, a full stack engineer who enjoys the whole journey of building software — from the first sketch of an idea to the small details that make a product feel right.</p>
+      <p>I work across the stack because I like understanding how the pieces fit together: <strong>what happens when a button is clicked</strong>, and what happens three systems downstream.</p>
+      <div class="about-stack">
+        <span>React</span><span>TypeScript</span><span>Node</span><span>GraphQL</span><span>Postgres</span><span>Redis</span><span>Docker</span><span>AWS</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="work">
+  <div class="wrap">
+    <div class="section-head"><h2>Selected Work</h2><span class="mono">02</span></div>
+    <div class="projects">
+      <div class="card">
+        <span class="tag mono">Case Study</span>
+        <h3>Project One</h3>
+        <p>A short line on the problem this solved and the impact it had — real numbers if you have them.</p>
+        <div class="stack-tags"><span>React</span><span>Node</span><span>Postgres</span></div>
+      </div>
+      <div class="card">
+        <span class="tag mono">Side Project</span>
+        <h3>Project Two</h3>
+        <p>What you built, why, and what you learned building it. Keep it specific, not generic.</p>
+        <div class="stack-tags"><span>Next.js</span><span>Redis</span></div>
+      </div>
+      <div class="card">
+        <span class="tag mono">Open Source</span>
+        <h3>Project Three</h3>
+        <p>A contribution or tool you maintain — good for showing range beyond client work.</p>
+        <div class="stack-tags"><span>TypeScript</span><span>AWS</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<footer id="contact">
+  <div class="wrap">
+    <h2>Let's build something.</h2>
+    <p>Open to full-time roles, freelance work, and interesting problems.</p>
+    <div class="footer-links">
+      <a href="mailto:akshay57@gmail.com">Email</a>
+      <a href="#">LinkedIn</a>
+      <a href="https://github.com/akshay-luhadia">GitHub</a>
+      <a href="#">Resume</a>
+    </div>
+    <p class="fine">Akshay Luhadia</p>
+  </div>
+</footer>
+
+</body>
+</html>
